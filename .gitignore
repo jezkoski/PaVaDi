@@ -1,0 +1,10 @@
+#sh log files
+*.sh.*
+
+#vcfs
+*.vcf.gz*
+
+#folders
+__pycache__
+old
+
