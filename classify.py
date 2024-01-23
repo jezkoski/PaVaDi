@@ -21,7 +21,7 @@ class Classify:
         """
 
         funcs_tmp = ["frameshift", "splice_acceptor", "splice_donor", "stop_gained", "start_lost",
-                     "missense_variant&splic"]  # varsome, checks start_lost variants!
+                     "missense_variant&splice_acceptor", "missense_variant&splice_donor"]  
         funcs_tmp2 = "inframe"
         funcs_tmp3 = "splic"
 
