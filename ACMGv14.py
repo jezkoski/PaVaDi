@@ -13,7 +13,7 @@ usage = """Usage: %prog [OPTION] -i  INPUT -o  OUTPUT ...
 version = """ACMG annotator, based on InterVar, version 1.4.
 """
 
-description = """=============================================================================
+description = """
                                                                        
 Interpretation of Pathogenic/Benign for variants 
 """
@@ -22,7 +22,6 @@ Interpretation of Pathogenic/Benign for variants
 
 def Annotator(File,outfile):
 
-    #Does the rule checks and reads in resources
     classify = Classify()
     today = date.today().strftime("%d/%m/%Y")
     
@@ -60,7 +59,6 @@ def Annotator(File,outfile):
             v.INFO["Triggered ACMG rules"] = rules
             w.write_record(v)
 
-    #Print out some overall stats from the annotation
     print(f"Total number of variants annotated: {sum(verdict_counts.values())}")
     print(verdict_counts)
     
@@ -97,7 +95,6 @@ def main():
         outfile = options.output
 
     Annotator(File,outfile)
-
 
 
 
