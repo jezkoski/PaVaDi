@@ -76,8 +76,8 @@ class VariantInfo:
     
         with closing(VCF(File)) as vcf:
          #ACMG info tag and the new outfile
-            vcf.add_info_to_header({'ID': 'ACMG verdict', 'Description': 'Variant prediction according to ACMG rules', 'Type':'Character','Number': '1'})
-            vcf.add_info_to_header({'ID': 'Triggered ACMG rules', 'Description': 'Triggered ACMG rules', 'Type':'Character','Number': '1'})
+            vcf.add_info_to_header({'ID': 'ACMG_verdict', 'Description': 'Variant prediction according to ACMG rules', 'Type':'Character','Number': '1'})
+            vcf.add_info_to_header({'ID': 'Triggered_rules', 'Description': 'Triggered ACMG rules', 'Type':'Character','Number': '1'})
         
             for variant in vcf:
                 yield variant

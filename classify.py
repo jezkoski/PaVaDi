@@ -744,7 +744,7 @@ class Classify:
 
     def verdict(self, scores: Dict[str, int]) -> str:
         """Do the verdict by checking the sums of each rule sets"""
-        verdicts = ["Pathogenic", "Likely pathogenic", "Benign", "Likely benign", "Uncertain significance"]
+        verdicts = ["Pathogenic", "Likely_pathogenic", "Benign", "Likely_benign", "Uncertain_significance"]
         PAS_out = -1
         BES_out = -1
         BPS_out = 4
