@@ -30,12 +30,12 @@ def Annotator(File,outfile):
 
     with closing(VCF(str(File))) as vcf:
         #ACMG info tag and the new outfile
-        vcf.add_info_to_header({'ID': 'ACMG verdict', 'Description': 'Variant prediction according to ACMG rules', 'Type':'Character','Number': '1'})
-        vcf.add_info_to_header({'ID': 'Triggered ACMG rules', 'Description': 'Triggered ACMG rules', 'Type':'Character','Number': '1'})
+        vcf.add_info_to_header({'ID': 'ACMG_verdict', 'Description': 'Variant prediction according to ACMG rules', 'Type':'Character','Number': '1'})
+        vcf.add_info_to_header({'ID': 'Triggered_ACMG_rules', 'Description': 'Triggered ACMG rules', 'Type':'Character','Number': '1'})
         # Add version info etc to header
         info = f"ACMGannotator version {version}, annotation date: {today}"
         vcf.add_info_to_header({'ID': 'Version', 'Description': f"{version}", 'Type': 'Character','Number': '1'})
-        vcf.add_info_to_header({'ID': 'Annotation date', 'Description': f"File was annotated {today}", 'Type':'Character','Number':'1'})
+        vcf.add_info_to_header({'ID': 'Annotation_date', 'Description': f"File was annotated {today}", 'Type':'Character','Number':'1'})
         
         fname=outfile
         w=Writer(fname,vcf)
@@ -55,8 +55,8 @@ def Annotator(File,outfile):
             verdict_counts[result] += 1
 
             #Write ACMG verdict to the INFO tag
-            v.INFO["ACMG verdict"] = result
-            v.INFO["Triggered ACMG rules"] = rules
+            v.INFO["ACMG_verdict"] = result
+            v.INFO["Triggered_ACMG_rules"] = rules
             w.write_record(v)
 
     print(f"Total number of variants annotated: {sum(verdict_counts.values())}")
